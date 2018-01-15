@@ -1,0 +1,51 @@
+<view class="cart">
+  <view class="cart_big cart_kong" a:if="{{carts == ''}}">
+      <text>
+        购物车空空如也
+      </text>
+  </view>
+  <view class="cart_big" a:for="{{carts}}">
+    <view class="cart_left cart_left_img" id="{{index}}">
+        <image src="../../image/07-1.png" a:if="{{item.selected}}" onTap="bindCheckbox" data-index="{{index}}"/>
+        <image src="../../image/07.png" a:else onTap="bindCheckbox" data-index="{{index}}" />
+    </view>
+    <view class="cart_img">
+      <image src="{{item.photo_x}}" />
+    </view>
+    <view class="cart_content">
+      <view class="content_top">
+        <text> {{item.pro_name}} </text>
+      </view>
+      <view class="content_middle">
+        <text>所属店铺： {{item.shop_name}}</text>
+      </view>
+      <view class="content_bottom">
+        <view class="content_money">
+          <text>￥{{item.price}}</text>
+        </view>
+        <view class="content_add">
+          <view class="add_minus" data-index="{{index}}" onTap="bindMinus" data-cartid="{{item.id}}">-</view>
+          <input type="text" value="{{item.num}}" />
+          <view class="add_plus" data-index="{{index}}" onTap="bindPlus" data-cartid="{{item.id}}">+</view>
+        </view>
+      </view>
+    </view>
+    <view class="dele" onTap="removeShopCard" data-cartid="{{item.id}}">
+      <icon type="clear" size="18" color="#eee" />
+    </view>
+  </view>
+</view>
+<!-- 底部 -->
+<view class="cart_payment">
+  <view class="cart_payment_left" onTap="bindSelectAll">
+    <view class="cart_left" style="margin:0 20rpx;" >
+      <image src="../../image/07-1.png" a:if="{{allChoice}}"/>
+      <image src="../../image/07.png" a:else />
+      <text style="margin:0 10rpx;">全选</text>
+      <text style="color:#f86e21;">{{total}}</text>
+    </view>
+  </view>
+  <view class="cart_payment_right" onTap='bindCheckout'>
+    <button type="primary" > 立即结算 </button>
+  </view>
+</view>

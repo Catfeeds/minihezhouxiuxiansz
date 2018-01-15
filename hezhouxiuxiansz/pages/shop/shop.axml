@@ -1,0 +1,25 @@
+<view class="shop" a:for="{{shopList}}">
+
+  <view class="fei" >
+    <image src="{{item.logo}}" a:if="{{item.logo}}"></image>
+    <image src="../../image/nopic.png" a:else></image>
+  </view>
+  <view class="gongsi">
+    <view style="font-size:32rpx;">{{item.name}}</view>
+    <view style="color:gray;" a:if="{{aa}}">联系人
+    ：{{item.uname}}</view>
+    <view style="color:gray;" a:if="{{aa}}">Tel：{{item.tel}}</view>
+    <view style="color:gray;">地址：{{item.sheng}}{{item.quyu}}</view>
+  </view>
+  <view class="shops">
+    <navigator url="../shopPage/shopPage?shopId={{item.id}}">进入店铺</navigator>
+  </view>
+
+</view>
+
+
+
+
+
+<view class="clear mt10" onTap="getMore">点击查看更多</view>
+

@@ -1,0 +1,90 @@
+.personal_check {
+    display: flex;
+    color: #999;
+    padding: 80rpx 0 50rpx 0;
+}
+page {
+    font-size: 29rpx;
+    font-family: "微软雅黑";
+}
+.check_right {
+    color: #333;
+    font-size: 25rpx;
+}
+.personal {
+    padding: 0 40rpx;
+    box-sizing: border-box;
+}
+.personal_shop {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    padding: 20rpx 0;
+    font-size: 28rpx;
+}
+.personal_shop input {
+    border: none;
+    padding-left: 10rpx;
+    width: 70%;
+}
+.personal_tip {
+    font-size: 24rpx;
+    color: #999;
+    text-align: center;
+    padding: 30rpx 0;
+}
+.personal_identity {
+    text-align: center;
+    padding: 30rpx 0;
+}
+/* 图片 */
+.img_big {
+    width: 350rpx;
+    height: 350rpx;
+    border: 4px dashed #ccc;
+    margin: 0 auto;
+    margin-top: 20rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.personal_img {
+    text-align: center;
+    margin-bottom: 20rpx;
+}
+.img_big view:first-child {
+    width: 130rpx;
+    height: 4px;
+    background: #ccc;
+    margin-left: -65rpx;
+    border-top-left-radius:5rpx; 
+    border-bottom-left-radius:5rpx; 
+    border-top-right-radius:5rpx; 
+    border-bottom-right-radius:5rpx; 
+}
+.img_big view:nth-child(2) {
+    margin-left: -65rpx;
+    width: 4px;
+    height: 130rpx;
+    background: #ccc;
+    border-top-left-radius:5rpx; 
+    border-bottom-left-radius:5rpx; 
+    border-top-right-radius:5rpx; 
+    border-bottom-right-radius:5rpx; 
+}
+.img_two {
+    width: 350rpx;
+    height: 350rpx;
+    margin: 0 auto;
+    margin-top: 20rpx;
+}
+/* 提交按钮 */
+.personal_button {
+    padding: 30rpx 0;
+    margin-top: 50rpx;
+}
+.personal_button button {
+    font-size: 30rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    background: #E0E0E0;
+}

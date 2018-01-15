@@ -1,0 +1,78 @@
+<view class="personal">
+  <view class="personal_check">
+    <view class="check_left">
+      <text>认证状态：</text>
+    </view>
+    <view class="check_content">
+      <text a:if="{{audit==0}}">审核中</text>
+      <text a:elif="{{audit==1}}" style="color:green">已认证</text>
+      <text a:elif="{{audit==1}}" style="color:red">未通过</text>
+      <text a:else>未提交审核</text>
+    </view>
+    <view class="check_right">
+      <!-- <text>（理由/原因:无）</text> -->
+    </view>
+  </view>
+  <view class="personal_shop">
+    <view class="shop_left">店铺名：</view>
+    <input type="text" data-value="{{name}}" name="name"  onBlur="bindShopname" value="{{name}}"/>
+  </view>
+  <view class="personal_shop">
+    <view class="shop_left">联系人：</view>
+    <input type="text" data-value="{{uname}}" name="uname"  onBlur="bindKeyname" value="{{uname}}"/>
+  </view>
+  <view class="personal_shop">
+    <view class="shop_left">手机：+86</view>
+    <input type="number" data-value="{{tel}}" name="tel"  onBlur="bindTelInput" value="{{tel}}"/>
+  </view>
+  <view class="personal_shop">
+    <view class="shop_left">详细地址：</view>
+    <input type="text" data-value="{{address}}" data-id="dao" name='address' onBlur='addsInputEvent' value="{{address}}"/>
+  </view>
+  <view class="personal_tip">
+    <text>ps:上传logo文件，如果您已认证，提交将会重新审核</text>
+  </view>
+  <!-- 图片1 -->
+  <view class="personal_identity">
+    <text>( 身份证正面 )</text>
+  </view>
+  <view class="personal_img" onTap="img01Click">
+    <view class="img_two" a:if="{{imageSrc}}">
+      <image src="{{imageSrc}}" mode="aspectFit"  />
+    </view>
+    <view class="img_big" a:else >
+      <view></view>
+      <view></view>
+    </view>
+  </view>
+  <!-- 图片2 -->
+  <view class="personal_identity">
+    <text>( 身份证反面 )</text>
+  </view>
+  <view class="personal_img" onTap="img02Click">
+    <view class="img_two" a:if="{{image}}">
+      <image src="{{image}}" mode="aspectFit"  />
+    </view>
+    <view class="img_big" a:else>
+      <view></view>
+      <view></view>
+    </view>
+  </view>
+  <!-- 图片3 -->
+  <view class="personal_identity">
+    <text>( 营业执照 )</text>
+  </view>
+  <view class="personal_img" onTap="img03Click">
+    <view class="img_tow" a:if="{{img}}">
+      <image src="{{img}}" mode="aspectFit"  />
+    </view>
+    <view class="img_big" a:else >
+      <view></view>
+      <view></view>
+    </view>
+  </view>
+  <!-- 提交按钮 -->
+  <view class="personal_button">
+    <button onTap="formDataCommit"> 提交认证 </button>
+  </view>
+</view>

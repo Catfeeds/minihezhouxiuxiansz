@@ -1,0 +1,36 @@
+<view class="section">
+  <!-- 左侧类型 -->
+  <scroll-view scroll-y="true" class="left">
+    <view class="{{tabNum == index ? 'active' : ''}}" a:for="{{array}}" id="{{index}}" onTap="tabClick">
+      <image class="sky" src="https://gzleren.com/minigueinon/Data/UploadFiles/category/20170823/1503478976861421.png"></image>
+      <!--字体图标-->
+      <text>杂粮</text>
+    </view>
+  </scroll-view>
+  <!-- 右侧数据 -->
+  <scroll-view scroll-y="true" class="right">
+    <view class="re">热门分类</view>
+    <view class="typeTree">
+      <view class="brand" a:for="{{array}}">
+        <navigator url="../screen/screen?cat_id={{data.id}}&title={{data.name}}" class="item">
+          <image src="https://gzleren.com/minigueinon/Data/UploadFiles/category/20170823/1503478826430911.png"></image>
+          <text>越南大米</text>
+        </navigator>
+      </view>
+    </view>
+    <view class="ren">热门单品</view>
+    <view class="ping" a:for="{{array}}">
+       <view class="ping_b">
+        <image src="https://gzleren.com/minigueinon/Data/UploadFiles/product/20170823/1503482321316251.jpg"></image>
+       </view>
+       <view class="ping_a">
+         <view class="ping_aa">金象牌进口泰国茉莉香米大米5kg</view>
+         <view class="ping_cc" a:if="{{aa}}">{{item.tag}}</view>
+         <view class="ping_dd">￥158.00</view>
+       </view>
+    </view>
+  </scroll-view>
+</view>
+<view class="lll">
+    <image src="../../images/kf.png"> <contact-button></contact-button>  <contact-button></contact-button></image>
+</view>

@@ -1,0 +1,137 @@
+<view class="product">
+  <swiper style="height:700rpx;width:100%;" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" circular="{{circular}}">
+    <block a:for="{{bannerItem}}"  class="swiper_block" style="{{height:700rpx;width:100%;}}">
+      <swiper-item style="height:700rpx;width:100%;">
+        <image src="{{item}}" class="slide_image" style="height:700rpx;width:100%;"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 商品标题-价格  -->
+  <view class="product_name">
+    <view class="product_name_title">
+      <text>{{pro.name}}</text>
+    </view>
+    <view class="product_jieshao">{{pro.intro}}</view>
+    <view class="product_name_bottom">
+      <view class="product_money">
+        <text class="money_left">￥{{prodetail2.price_yh}}</text>
+        <text class="money_right">￥{{prodetail2.price}}</text>
+      </view>
+      <view class="product_repertory">
+        <text>库存：{{prodetail2.store}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 促销活动 -->
+  <view class="promotion" a:if="{{pro.price_jf != NULL}}">
+    <view class="promotion_big">
+      <view>促销</view>
+      <view class="promotion_clor">
+        <text>送</text>
+        <text>最高送{{pro.price_jf}}积分</text>
+      </view>
+      <view class="promotion_clor">
+        <text>限</text>
+        <text>限时折扣活动</text>
+      </view>
+    </view>
+  </view>
+  <!-- 服务 -->
+  <view class="promotion">
+    <view class="promotion_big promotion_bor">
+      <view>服务</view>
+      <view class="promotion_clor promotion_img">
+        <image src="../../image/09.png"  />
+        <text>官方唯一商城</text>
+      </view>
+      <view class="promotion_clor promotion_img">
+        <image src="../../image/09.png"  />
+        <text>全国联保</text>
+      </view>
+      <view class="promotion_clor promotion_img">
+        <image src="../../image/09.png"  />
+        <text>全场包邮</text>
+      </view>
+    </view>
+  </view>
+  <!-- 属性 -->
+  <view class="specification" a:if="{{pro.attr_value}}">
+    <view class="specification_big" >
+      <view class="specification_left">{{prodetail[0].attr}}</view>
+      <view class="specification_content {{num3 == item.id?'specifi_active':''}}" a:for="{{shu}}" data-id="{{index}}" onTap="changPro" data-attrid="{{item.id}}">
+        <text class="">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 规格 -->
+ <view class="specification" a:if="{{pro.spec_value}}">
+    <view class="specification_big" >
+      <view class="specification_left">{{prodetail[0].spec}}</view>
+      <view class="specification_content {{num2 == item.id?'specifi_active':''}}" a:for="{{guei}}" data-id="{{index}}" onTap="changPro" data-specid="{{item.id}}">
+        <text class="">{{item.spec_value}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 数量 -->
+  <view class="quantity">
+    <view class="quantity_big">
+      <view class="quantity_left">
+        <text>数量</text>
+      </view>
+      <view class="quantity_num" onTap="addClick">
+        <view class="quantity_jian" id="aa">-</view>
+        <view class="quantity_number">{{addNum}}</view>
+        <view class="quantity_add" id="bb">+</view>
+      </view>
+      <view class="quantity_repertory">
+        <text>库存：{{prodetail2.store}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 产品参数 -->
+  <view class="parameter" onTap="parClick">
+    <view class="parameter_left">
+      <text>产品参数</text>
+    </view>
+    <view class="parameter_img" style="transform: rotate({{num}}deg);">
+      <image src="../../image/08.png" />
+    </view>
+  </view>
+  <!-- 产品参数 - 数据 -->
+  <view class="parameter_data" a:if="{{parData}}">
+    <text>产品信息</text>
+    <view class="parameter_data_left" a:for="{{param}}">
+      <view>{{item.key}}</view>
+      <view>{{item.value}}</view>
+    </view>
+  </view>
+  <!-- 分割线 -->
+  <view class="cut_off">
+
+  </view>
+  <!-- 图文详情 -->
+  <!-- <view class="parameter"style="border-bottom:1px solid #e6e6e6;">
+    <view class="parameter_left" >
+      <text>图文详情</text>
+    </view>
+  </view> -->
+  <!-- 图文详情 - 数据 -->
+  <!-- <view class="tuwenData">
+    <image src="{{item}}" a:for="{{pictures}}" onTap="imgClick" data-index="{{index}}" mode="widthFix"/>
+  </view> -->
+
+</view>
+<!-- 底部 -->
+<view class="parameter_bottom">
+  <view class="bottom_left" onTap="gouCart">
+    <image src="../../image/04.png"/>
+    <view>购物车</view>
+  </view>
+  <view class="bottom_shop shop" data-type="addcart"  onTap="addShopCart">
+    <button type="primary">加入购物车</button>
+  </view>
+  <view class="bottom_shop" onTap="addShopCart" data-type="buynow" data-status="1">
+    <button type="primary">立即购买</button>
+  </view>
+</view>

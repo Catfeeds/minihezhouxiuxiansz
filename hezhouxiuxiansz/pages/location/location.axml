@@ -1,0 +1,32 @@
+
+<!--地址管理-->
+<radio-group class="radio-group" onChange="radioChange" class="radio-group">
+  <label class="address" a:for="{{items}}"  >
+    <view class="address-icon">
+      <radio  value="{{item.name}}" checked="{{item.checked}}"/>
+    </view>
+    <view class="address-detail">
+      <view class="address-name-phone">
+        <text class="address-name">李某某</text>
+        <text class="address-phone">12345678900</text>
+      </view>
+      <view class="address-info">广东省广州市天河区天盈创意园</view>
+      <view class="address-edit">
+        <view>
+          <text></text>
+        </view>
+        <view>
+          <text>设置默认</text>
+          <text> | </text>
+          <text>删除</text>
+        </view>
+      </view>
+    </view>
+  </label>
+</radio-group>
+<navigator url="../newLlocation/newLlocation">
+  <view class="add-address">
+    <image class="add-address-icon" src="#"></image>
+    <view>新增地址</view>
+  </view>
+</navigator>

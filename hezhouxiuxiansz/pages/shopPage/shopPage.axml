@@ -1,0 +1,194 @@
+<view class="cont">
+  <!--底部图片-->
+  <view class="dian">
+
+    <image class="dian_img" src="">
+    </image>
+    <view class="dian_ceng"></view>
+  </view>
+
+
+  <view class="cp">
+
+    <view class="nei">
+      <image class="log" src="{{shopInfo.logo}}"></image>
+
+      <view class="si">
+        <view style="margin-top:20rpx;">{{shopInfo.name}}</view>
+
+        <view class="xin" a:if="{{shopInfo.grade>0 && shopInfo.grade<1}}">
+          <image class="xing" src="../../image/bann.png"></image>
+        </view>
+        <view class="xin" a:if="{{shopInfo.grade==1}}">
+          <image class="xing" src="../../image/xing.png"></image>
+        </view>
+        <view class="xin" a:if="{{shopInfo.grade>1 && shopInfo.grade<2}}">
+          <image class="xing" src="../../image/xing.png"></image>
+          <image class="xing" src="../../image/bann.png"></image>
+        </view>
+        <view class="xin"  a:if="{{shopInfo.grade==2}}">
+          <image class="xing" src="../../image/xing.png"></image>
+          <image class="xing" src="../../image/xing.png"></image>
+        </view>
+        <view class="xin" a:if="{{shopInfo.grade>2 && shopInfo.grade<3}}">
+          <image class="xing" src="../../image/xing.png"></image>
+          <image class="xing" src="../../image/xing.png"></image>
+          <image class="xing" src="../../image/bann.png"></image>
+        </view>
+        <view class="xin" a:if="{{shopInfo.grade==3}}">
+          <image class="xing" src="../../image/xing.png"></image>
+          <image class="xing" src="../../image/xing.png"></image>
+          <image class="xing" src="../../image/xing.png"></image>
+        </view>
+        <view class="xin" a:if="{{shopInfo.grade>3 && shopInfo.grade<4}}">
+          <image class="xing" src="../../image/xing.png"></image>
+          <image class="xing" src="../../image/xing.png"></image>
+          <image class="xing" src="../../image/xing.png"></image>
+          <image class="xing" src="../../image/bann.png"></image>
+        </view>
+        <view class="xin" a:if="{{shopInfo.grade==4}}">
+          <image class="xing" src="../../image/xing.png"></image>
+          <image class="xing" src="../../image/xing.png"></image>
+          <image class="xing" src="../../image/xing.png"></image>
+          <image class="xing" src="../../image/xing.png"></image>
+        </view>
+        <view class="xin" a:if="{{shopInfo.grade>4 && shopInfo.grade<5}}">
+          <image class="xing" src="../../image/xing.png"></image>
+          <image class="xing" src="../../image/xing.png"></image>
+          <image class="xing" src="../../image/xing.png"></image>
+          <image class="xing" src="../../image/xing.png"></image>
+          <image class="xing" src="../../image/bann.png"></image>
+        </view>
+        <view class="xin" a:if="{{shopInfo.grade>5}}">
+          <image class="xing" src="../../image/xing.png"></image>
+          <image class="xing" src="../../image/xing.png"></image>
+          <image class="xing" src="../../image/xing.png"></image>
+          <image class="xing" src="../../image/xing.png"></image>
+          <image class="xing" src="../../image/xing.png"></image>
+        </view>
+        <view style="margin-top:8rpx;font-size:24rpx;" a:if="{{aa}}" >
+          暂无评分
+        </view>
+        <text style="margin-right:10rpx;font-size:26rpx">销量:{{shopInfo.salenum}}</text>
+      </view>
+    </view>
+    <view class="tab">
+      <!--tab-->
+      <view class="tab-left" onTap="tabClick">
+        <view class="a {{tabNum == 0?'active':''}}" id="0">
+          全部商品
+        </view>
+        <view class=" a {{tabNum == 1?'active':''}}" id="1">
+          推荐
+        </view>
+        <view class=" a {{tabNum ==2?'active':''}}" id="2">
+          上新
+        </view>
+        <view class="a {{tabNum == 3?'active':''}}" id="3">
+          店铺简介
+        </view>
+      </view>
+
+      <view class="tab-right">
+        <view class="right-item " a:if="{{tabNum == 0}}">
+ <view class="list">
+            <block>
+              <view class="ban" a:for="{{proList}}">
+                <navigator url="../product/product?pid={{item.id}}" class="cover flex-wrp" >
+                  <image class="banner" src="{{item.photo_x}}"></image>
+                  <view class="act-item ellipsis" sytle="margin-top:5rpx;padding-left:20rpx;">
+                    <text class="type">{{item.name}}</text>
+                  </view>
+                  <view class="act-item ellipsis">
+                    <text class="kkk">{{item.intro}}</text>
+                  </view>
+                  <view class="act-item ellipsis">
+                    <text style="color:red;font-size:30rpx;">¥ {{item.price_yh}}</text>
+                  </view>
+                  <view class="act-item ellipsis">
+                    <text style="color:#999999;font-size:23rpx" a:if="{{item.is_show==1}}">新品上市</text>
+                    <text style="color:#999999;font-size:23rpx" a:if="{{item.is_hot==1}}">平台热销</text>
+                    <text style="color:#999999;font-size:23rpx" a:if="{{item.is_sale==1}}">折扣促销</text>
+                    <text style="color:#999999;font-size:23rpx" a:else>店家推荐</text>
+                    <text style="color:#999999;font-size:23rpx;float:right">销量:{{item.shiyong}}</text>
+                  </view>
+                </navigator>
+              </view>
+            </block>
+          </view>
+        </view>
+        <!--2-->
+        <view class="right-item " a:if="{{tabNum == 1}}">
+          <view style="color:gray;font-size:24rpx;text-align:center;margin-top:10rpx;">
+          -- 店家推荐 --
+          </view>
+          <view class="list">
+            <block>
+              <view class="ban" a:for="{{tjList}}">
+                <navigator url="../product/product?pid={{item.id}}" class="cover flex-wrp" >
+                  <image class="banner" src="{{item.photo_x}}" mode="widthFix"></image>
+                  <view class="act-item ellipsis">
+                    <text class="type">{{item.name}}</text>
+                  </view>
+                  <view class="act-item ellipsis">
+                    <text class="kkk">{{item.intro}}</text>
+                  </view>
+                  <view class="act-item ellipsis">
+                    <text style="color:red;font-size:30rpx;">¥ {{item.price_yh}}</text>
+                  </view>
+                  <view class="act-item ellipsis">
+                    <text style="color:#999999;font-size:23rpx">推荐</text>
+           <text style="color:#999999;font-size:23rpx;float:right">销量:{{item.shiyong}}</text>
+                  </view>
+                </navigator>
+              </view>
+            </block>
+          </view>
+        </view>
+
+
+
+<!--3-->
+ <view class="right-item "  a:if="{{tabNum == 2}}">
+          <view style="color:gray;font-size:24rpx;text-align:center;margin-top:10rpx;">
+          -- 本周上新 --
+          </view>
+          <view class="list">
+            <block>
+              <view class="ban" a:for="{{newList}}">
+                <navigator url="../product/product?pid={{item.id}}" class="cover flex-wrp" >
+                  <image class="banner" src="{{item.photo_x}}" mode="widthFix"></image>
+                  <view class="act-item ellipsis">
+                    <text class="type">{{item.name}}</text>
+                  </view>
+                  <view class="act-item ellipsis">
+                    <text class="kkk">{{item.intro}}</text>
+                  </view>
+                  <view class="act-item ellipsis">
+                    <text style="color:red;font-size:30rpx;">¥ {{item.price_yh}}</text>
+                  </view>
+                  <view class="act-item ellipsis">
+                    <text style="color:#999999;font-size:23rpx">新上架</text>
+           <text style="color:#999999;font-size:23rpx;float:right">销量:{{item.shiyong}}</text>
+                  </view>
+                </navigator>
+              </view>
+            </block>
+          </view>
+        </view>
+
+<!--4-->
+
+        <view class="tab-right"  a:if="{{tabNum == 3}}">
+          <view class="tab_right_content">
+              
+          </view>
+
+        </view>
+      </view>
+    </view>
+
+
+
+  </view>
+</view>

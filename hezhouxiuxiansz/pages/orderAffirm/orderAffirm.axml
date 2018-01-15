@@ -1,0 +1,77 @@
+<!--pay.wxml-->
+<view class="w100">
+		<view class="p_all bg_white df item" a:for="{{productData}}">
+			<view class="cp_photo">			
+				<image src="{{item.photo_x}}"></image>
+			</view>
+			<view class="df_1">	
+				<view class="font_14 mt5 ovh1">
+		            {{item.name}} 
+		    </view>
+			<text class="gm_ovh_1h red pt10">¥{{item.price}}</text>
+			<text class="gm_ovh_1h pt10">数量：{{item.num}}</text>
+			</view>
+		</view>		
+		
+		
+      
+      <view class="p_all bg_white mt10 font_14">
+		   <navigator url="../site/site?temp=1&cartId={{cartId}}" hover-class="none">
+        <view class="df">
+          <view class="df_1 c6">
+          <view class="l_h20">收货人：{{address.name}}<text class="fl_r mr10">{{address.tel}}</text></view>
+          <view class="l_h20 mt5">地址：{{address.address_xq}}</view>
+          </view>		
+        </view>
+			</navigator>
+		</view>
+
+		<!-- <view class="p_all bg_white mt10 font_14">
+		   <navigator url="../site/site" hover-class="none">
+			<view class="df tijian">
+			   <text>+</text>   
+            
+            <text>添加收货地址</text>			
+			
+			</view>
+			</navigator>
+           
+		</view>	 -->
+  <view class="box itemBox" onTap="hui" data-id="{{one}}">
+      <view class="left">优惠券</view>
+      <view class="right">选择优惠券</view>
+  </view>
+  <!-- 优惠劵 -数据-->
+  <view >
+    <view class="radio-group"  a:if="{{youhui}}">
+		<view a:for="{{quan}}" class="radio_big" data-rid="{{index}}" data-vid="{{item.id}}" onTap="radioChange" data-value="{{item.amount}}">
+			<view class="radio_img">
+				<image src="../../image/07.png" a:if="{{num == index?false:true}}" />
+				<image src="../../image/07-1.png" a:else />
+			</view>
+			<view>
+				<text>使用{{item.amount}}元优惠劵</text>
+			</view>
+		</view>
+		<view onTap="radioChangeNo" data-vid="0" data-value="0" class="radio_big">
+			<view class="radio_img">
+				<image src="../../image/07.png" a:if="{{noNum}}" />
+				<image src="../../image/07-1.png" a:else />
+			</view>
+			<view>
+				<text>不使用优惠劵</text>
+			</view>
+		</view>
+	</view>
+		
+  </view>
+		<view class="p_all bg_white mt10 font_14">
+			<textarea class="min_60" auto-height name="remark" placeholder="备注"  onInput="remarkInput" value="{{remark}}"/> 
+		</view>	
+	<view class="zhifu mt10 tc">应共支付：<text class="font_20 red">￥{{total}}</text></view>
+	<view class="p_all mt10">
+		<view class="btnGreen">
+			<button class="wx_pay_submit" type="primary" id="wxPay" disabled="{{btnDisabled}}" formType="submit" onTap="createProductOrderByAli">支付宝支付</button>
+		</view>
+	</view>
+</view>

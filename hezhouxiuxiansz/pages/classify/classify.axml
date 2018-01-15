@@ -1,0 +1,44 @@
+<view class="section">
+  <!-- 左侧类型 -->
+  <scroll-view scroll-y="true" class="left">
+    <view class="{{tabNum == index ? 'active' : ''}}" a:for="{{types}}" id="{{index}}" onTap="tabClick">
+      <image class="sky" src="{{item.bz_1}}"></image>
+      <!--字体图标-->
+      <text>{{item.name}}</text>
+    </view>
+  </scroll-view>
+  <!-- 右侧数据 -->
+  <scroll-view scroll-y="true" class="right">
+    <view class="re">热门分类</view>
+    <view class="typeTree">
+      <view class="brand" a:for="{{typeTree}}">
+        <navigator url="../screen/screen?cid={{item.id}}&title={{item.name}}" class="item">
+          <image src="{{item.bz_1}}"></image>
+          <text>{{item.name}}</text>
+        </navigator>
+      </view>
+    </view>
+    <view class="ren">热门单品</view>
+
+    <view class="ping" a:for="{{hot}}"  data-id="{{item.id}}">
+
+    <navigator url="../product/product?pid={{item.id}}" class="ping">
+
+       <view class="ping_b">
+         
+        <image src="{{item.photo_x}}"></image>
+       </view>
+       <view class="ping_a">
+
+         <view class="ping_aa">{{item.name}}</view>
+         <view class="ping_cc" a:if="{{item.tag != NULL}}">{{item.tag}}</view>
+         <view class="ping_dd">￥{{item.price}}</view>
+        </view>
+    </navigator>
+    </view>
+    
+  </scroll-view>
+</view>
+<!-- <view class="lll">
+    <image src="../../image/kf.png"> <contact-button></contact-button>  <contact-button></contact-button></image>
+</view> -->

@@ -1,0 +1,41 @@
+page {
+  background: #efeff4;
+}
+.container {
+  font-size: 12px;
+  background-color: white;
+}
+
+.section {
+  height: 100rpx;
+  border-bottom: 1px lightgrey solid;
+  display: flex;
+  align-items: center;
+  margin: 0 30rpx;
+}
+
+
+button {
+  width: 90%;
+  color: #fff;
+  background-color: #fc0;
+  margin: 0 auto; 
+}
+
+.picker {
+  width: 600rpx;
+  height: 100%;
+}
+.picker input {
+  color: #333;
+}
+.ww{
+  width: 250px;
+}
+
+.btn-area{
+  margin-top: 100rpx;
+}
+input {
+    border: none;
+}
